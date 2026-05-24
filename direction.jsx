@@ -1,5 +1,57 @@
 const GS_PAGES = ['Home', 'Projects', 'Background', 'Leadership & Memberships', 'Awards'];
 
+function GSContactIcon({ id }) {
+  if (id === 'email') return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="4" width="20" height="16" rx="2"/>
+      <path d="m2 7 10 7 10-7"/>
+    </svg>
+  );
+  if (id === 'linkedin') return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+      <rect x="2" y="9" width="4" height="12"/>
+      <circle cx="4" cy="4" r="2"/>
+    </svg>
+  );
+  return null;
+}
+
+function GSContactModal({ onClose }) {
+  const items = window.CONTACT_ITEMS || [];
+  return (
+    <div className="gs-contact-modal" onClick={onClose}>
+      <div className="gs-contact-dialog" onClick={e => e.stopPropagation()}>
+        <div className="gs-contact-head">
+          <div>
+            <div className="gs-contact-title">Get in touch</div>
+            <div className="gs-contact-sub">Jason Cabrejos</div>
+          </div>
+          <button className="gs-contact-close" onClick={onClose} aria-label="Close">×</button>
+        </div>
+        <div className="gs-contact-list">
+          {items.map(item => (
+            <a
+              key={item.id}
+              className="gs-contact-item"
+              href={item.href}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noopener noreferrer' : undefined}
+            >
+              <span className="gs-contact-icon"><GSContactIcon id={item.id} /></span>
+              <span className="gs-contact-info">
+                <span className="gs-contact-item-label">{item.label}</span>
+                <span className="gs-contact-item-value">{item.value}</span>
+              </span>
+              <span className="gs-contact-arrow">↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function GSSlideshow() {
   const shots = window.HEADSHOTS || [];
   const [idx, setIdx] = React.useState(0);
@@ -97,6 +149,8 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
   const [page, setPage] = React.useState('Home');
   const [openId, setOpenId] = React.useState(null);
   const [resumeOpen, setResumeOpen] = React.useState(false);
+  const [contactOpen, setContactOpen] = React.useState(false);
+  const [menuOpen, setMenuOpen] = React.useState(false);
   const featured = window.PROJECTS.filter(p => p.featured);
   const all = window.PROJECTS;
   const resumeUrl = 'uploads/LatestResume.pdf';
@@ -134,9 +188,21 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
         </div>
         <div className="gs-nav-right">
           <span className="gs-nav-status">Available · 2026</span>
-          <button className="gs-nav-cta">Contact</button>
+          <button className="gs-nav-cta" onClick={() => setContactOpen(true)}>Contact</button>
         </div>
+        <button className="gs-nav-hamburger" onClick={() => setMenuOpen(m => !m)} aria-label="Toggle menu">
+          {menuOpen ? '✕' : '☰'}
+        </button>
       </nav>
+
+      {menuOpen && (
+        <div className="gs-mobile-menu">
+          {GS_PAGES.map(pg => (
+            <button key={pg} className={`gs-mobile-btn ${page===pg?'active':''}`} onClick={() => { setPage(pg); setOpenId(null); setMenuOpen(false); }}>{pg}</button>
+          ))}
+          <button className="gs-mobile-contact" onClick={() => { setContactOpen(true); setMenuOpen(false); }}>Contact</button>
+        </div>
+      )}
 
       <div className="gs-page v2-page-fade" key={page}>
         {page === 'Home' && (
@@ -179,17 +245,6 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
               </div>
             </section>
           </>
-        )}
-
-        {resumeOpen && (
-          <div className="gs-resume-modal" onClick={closeResume}>
-            <div className="gs-resume-dialog" onClick={(e) => e.stopPropagation()}>
-              <button className="gs-resume-close" onClick={closeResume} aria-label="Close résumé">×</button>
-              <div className="gs-resume-frame">
-                <iframe src={resumeUrl} title="Résumé PDF" frameBorder="0" />
-              </div>
-            </div>
-          </div>
         )}
 
         {page === 'Projects' && (
@@ -315,6 +370,19 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
           </section>
         )}
       </div>
+
+      {contactOpen && <GSContactModal onClose={() => setContactOpen(false)} />}
+
+      {resumeOpen && (
+        <div className="gs-resume-modal" onClick={closeResume}>
+          <div className="gs-resume-dialog" onClick={(e) => e.stopPropagation()}>
+            <button className="gs-resume-close" onClick={closeResume} aria-label="Close résumé">×</button>
+            <div className="gs-resume-frame">
+              <iframe src={resumeUrl} title="Résumé PDF" frameBorder="0" />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

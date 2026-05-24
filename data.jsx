@@ -210,7 +210,24 @@ const AWARDS = [
   { title: 'L1 High Power Rocketry Certification', year: '2017 — 2018', note: 'Via AeroMavs.' },
 ];
 
+const CONTACT_ITEMS = [
+  {
+    id: 'email',
+    label: 'Email',
+    value: 'jasoncabrejos@hotmail.com',
+    href: 'mailto:jasoncabrejos@hotmail.com',
+  },
+  {
+    id: 'linkedin',
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/jasoncabrejos',
+    href: 'https://www.linkedin.com/in/jasoncabrejos/',
+    external: true,
+  },
+];
+
 window.PROJECTS = PROJECTS;
 window.BACKGROUND = BACKGROUND;
 window.MEMBERSHIPS = MEMBERSHIPS;
 window.AWARDS = AWARDS;
+window.CONTACT_ITEMS = CONTACT_ITEMS;
