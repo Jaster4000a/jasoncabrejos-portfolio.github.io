@@ -1,5 +1,5 @@
 /* ============================================================
-   v2 base — Minimalist + Flat, professional
+   Base — Minimalist + Flat, professional
    Shared tokens + motion utilities
    ============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap');
@@ -16,58 +16,8 @@ body {
 button { font-family: inherit; cursor: pointer; }
 a { color: inherit; }
 
-/* ===== Top app shell (direction switcher) ===== */
+/* ===== App shell ===== */
 .v2-shell { min-height: 100vh; background: #f5f5f4; color: #0a0a0a; }
-.v2-tabs {
-  position: sticky; top: 0; z-index: 100;
-  display: flex; align-items: center; gap: 0;
-  padding: 0 1.5rem;
-  background: #0a0a0a;
-  color: #fafafa;
-  border-bottom: 1px solid #262626;
-  height: 44px;
-  font-family: 'IBM Plex Mono', monospace;
-}
-.v2-tabs-label {
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.55;
-  margin-right: 1.5rem;
-}
-.v2-tab {
-  background: transparent;
-  color: #d4d4d4;
-  border: none;
-  padding: 0 1rem;
-  height: 44px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  position: relative;
-  transition: color 0.2s ease;
-}
-.v2-tab:hover { color: #fafafa; }
-.v2-tab.active { color: #fafafa; }
-.v2-tab.active::after {
-  content: '';
-  position: absolute; bottom: -1px; left: 1rem; right: 1rem;
-  height: 2px; background: #fafafa;
-  animation: underlineSlide 0.3s ease-out;
-}
-.v2-tab-note {
-  margin-left: auto;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  opacity: 0.45;
-  text-transform: uppercase;
-}
-
-@keyframes underlineSlide {
-  from { transform: scaleX(0); transform-origin: left; }
-  to   { transform: scaleX(1); transform-origin: left; }
-}
 
 /* ===== Reveal-on-scroll utility ===== */
 .reveal {

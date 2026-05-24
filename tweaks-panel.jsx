@@ -169,8 +169,6 @@ function useTweaks(defaults) {
       ? keyOrEdits : { [keyOrEdits]: val };
     setValues((prev) => ({ ...prev, ...edits }));
     window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
-    // Same-window signal so in-page listeners (deck-stage rail thumbnails)
-    // can react — the parent message only reaches the host, not peers.
     window.dispatchEvent(new CustomEvent('tweakchange', { detail: edits }));
   }, []);
   return [values, setTweak];
@@ -183,42 +181,9 @@ function useTweaks(defaults) {
 // The close button posts __edit_mode_dismissed so the host's toolbar toggle
 // flips off in lockstep; the host echoes __deactivate_edit_mode back which
 // is what actually hides the panel.
-function TweaksPanel({ title = 'Tweaks', noDeckControls = false, children }) {
+function TweaksPanel({ title = 'Tweaks', children }) {
   const [open, setOpen] = React.useState(false);
   const dragRef = React.useRef(null);
-  // Auto-inject a rail toggle when a <deck-stage> is on the page. The
-  // toggle drives the deck's per-viewer _railVisible via window message;
-  // state is mirrored from the same localStorage key the deck reads so
-  // the control reflects reality across reloads. The mechanism is the
-  // message — authors who want custom placement can post it directly
-  // and pass noDeckControls to suppress this one.
-  const hasDeckStage = React.useMemo(
-    () => typeof document !== 'undefined' && !!document.querySelector('deck-stage'),
-    [],
-  );
-  // Hide the toggle until the host has actually enabled the rail (the
-  // __omelette_rail_enabled window message, posted only when the
-  // omelette_deck_rail_enabled flag is on for this user). The initial read
-  // covers TweaksPanel mounting after the message already arrived; the
-  // listener covers the common case of mounting first.
-  const [railEnabled, setRailEnabled] = React.useState(
-    () => hasDeckStage && !!document.querySelector('deck-stage')?._railEnabled,
-  );
-  React.useEffect(() => {
-    if (!hasDeckStage || railEnabled) return undefined;
-    const onMsg = (e) => {
-      if (e.data && e.data.type === '__omelette_rail_enabled') setRailEnabled(true);
-    };
-    window.addEventListener('message', onMsg);
-    return () => window.removeEventListener('message', onMsg);
-  }, [hasDeckStage, railEnabled]);
-  const [railVisible, setRailVisible] = React.useState(() => {
-    try { return localStorage.getItem('deck-stage.railVisible') !== '0'; } catch (e) { return true; }
-  });
-  const toggleRail = (on) => {
-    setRailVisible(on);
-    window.postMessage({ type: '__deck_rail_visible', on }, '*');
-  };
   const offsetRef = React.useRef({ x: 16, y: 16 });
   const PAD = 16;
 
@@ -300,11 +265,6 @@ function TweaksPanel({ title = 'Tweaks', noDeckControls = false, children }) {
         </div>
         <div className="twk-body">
           {children}
-          {hasDeckStage && railEnabled && !noDeckControls && (
-            <TweakSection label="Deck">
-              <TweakToggle label="Thumbnail rail" value={railVisible} onChange={toggleRail} />
-            </TweakSection>
-          )}
         </div>
       </div>
     </>

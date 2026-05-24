@@ -1,6 +1,3 @@
-// v2 Direction B — GRID SYSTEM
-// 12-col underlay, Bauhaus-leaning, warm accent
-
 const GS_PAGES = ['Home', 'Projects', 'Background', 'Leadership & Memberships', 'Awards'];
 
 function GSSlideshow() {
