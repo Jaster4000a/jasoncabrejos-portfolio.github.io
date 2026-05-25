@@ -43,6 +43,11 @@ const PROJECTS = [
     image: 'uploads/projects/roverTeam/Thumbnail.jpg',
     featured: true,
     prize: null,
+    media: [
+      { type: 'image',   src: 'uploads/projects/roverTeam/Thumbnail.jpg',          caption: 'UTA Rover Team' },
+      { type: 'youtube', src: 'https://www.youtube.com/watch?v=TvmhHQHWhO4',        caption: 'Rover arm demo' },
+      { type: 'image',   src: 'uploads/projects/roverTeam/roverPullingme.png',                   caption: 'Rover Pulling Me' }
+    ],
   },
   {
     id: 'rover-sim',

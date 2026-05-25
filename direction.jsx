@@ -111,7 +111,81 @@ function GSFlag({ prize, style }) {
   return <div className="gs-flag corner">★ {prize}</div>;
 }
 
-function GSTile({ p, expanded, onClick, flagStyle, idx }) {
+function ytId(url) {
+  const m = url.match(/[?&]v=([^&]+)/);
+  return m ? m[1] : url;
+}
+
+function GSLightbox({ projectTitle, media, startIdx, onClose }) {
+  const [idx, setIdx] = React.useState(startIdx);
+  const len = media.length;
+  const item = media[idx];
+
+  React.useEffect(() => {
+    const handler = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft') setIdx(i => ((i - 1 + len) % len));
+      if (e.key === 'ArrowRight') setIdx(i => (i + 1) % len);
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [len, onClose]);
+
+  const imgCount = media.filter(m => m.type === 'image').length;
+  const vidCount = media.filter(m => m.type === 'video' || m.type === 'youtube').length;
+  const summary = [
+    imgCount ? `${imgCount} photo${imgCount > 1 ? 's' : ''}` : '',
+    vidCount ? `${vidCount} video${vidCount > 1 ? 's' : ''}` : '',
+  ].filter(Boolean).join(' · ');
+
+  return (
+    <div className="gs-lb" onClick={onClose}>
+      <div className="gs-lb-dialog" onClick={e => e.stopPropagation()}>
+        <div className="gs-lb-head">
+          <div className="gs-lb-head-left">
+            <span className="gs-lb-proj">{projectTitle}</span>
+            <span className="gs-lb-summary">{summary}</span>
+          </div>
+          <div className="gs-lb-head-right">
+            <span className="gs-lb-count">{String(idx + 1).padStart(2, '0')} / {String(len).padStart(2, '0')}</span>
+            <button className="gs-lb-close" onClick={onClose} aria-label="Close gallery">×</button>
+          </div>
+        </div>
+        <div className="gs-lb-stage">
+          {item.type === 'youtube' ? (
+            <iframe key={idx} className="gs-lb-yt" src={`https://www.youtube.com/embed/${ytId(item.src)}?autoplay=1`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen frameBorder="0" title={item.caption || 'Video'} />
+          ) : item.type === 'video' ? (
+            <video key={idx} className="gs-lb-media" controls autoPlay src={item.src} />
+          ) : (
+            <img className="gs-lb-media" src={item.src} alt={item.caption || ''} />
+          )}
+          {item.caption && <div className="gs-lb-caption">{item.caption}</div>}
+          {len > 1 && (
+            <>
+              <button className="gs-lb-nav prev" onClick={() => setIdx(i => ((i - 1 + len) % len))} aria-label="Previous">‹</button>
+              <button className="gs-lb-nav next" onClick={() => setIdx(i => (i + 1) % len)} aria-label="Next">›</button>
+            </>
+          )}
+        </div>
+        {len > 1 && (
+          <div className="gs-lb-strip">
+            {media.map((m, i) => (
+              <button key={i} className={`gs-lb-thumb ${i === idx ? 'active' : ''}`} onClick={() => setIdx(i)} aria-label={m.caption || `Item ${i + 1}`}>
+                {m.type === 'youtube'
+                  ? <img src={`https://img.youtube.com/vi/${ytId(m.src)}/hqdefault.jpg`} alt={m.caption || ''} />
+                  : m.type === 'video'
+                  ? <div className="gs-lb-thumb-vid">▶</div>
+                  : <img src={m.src} alt={m.caption || ''} />}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function GSTile({ p, expanded, onClick, onGallery, flagStyle, idx }) {
   const num = String(idx + 1).padStart(3, '0');
   return (
     <article className={`gs-tile ${expanded ? 'open' : ''}`} onClick={onClick}>
@@ -130,6 +204,32 @@ function GSTile({ p, expanded, onClick, flagStyle, idx }) {
             <div className="gs-tile-tags">
               {p.tags.map(t => <span key={t} className="gs-chip">{t}</span>)}
             </div>
+            {p.media && p.media.length > 0 && (
+              <div className="gs-tile-media-strip" onClick={e => e.stopPropagation()}>
+                {p.media.map((m, i) => (
+                  <button
+                    key={i}
+                    className="gs-tile-media-thumb"
+                    onClick={e => { e.stopPropagation(); onGallery(p, i); }}
+                    aria-label={m.caption || `Media ${i + 1}`}
+                    title={m.caption || ''}
+                  >
+                    {m.type === 'youtube'
+                      ? <img src={`https://img.youtube.com/vi/${ytId(m.src)}/mqdefault.jpg`} alt={m.caption || ''} />
+                      : m.type === 'video'
+                      ? <div className="gs-tile-media-thumb-vid">▶</div>
+                      : <img src={m.src} alt={m.caption || ''} />}
+                  </button>
+                ))}
+                <button
+                  className="gs-tile-media-strip-cta"
+                  onClick={e => { e.stopPropagation(); onGallery(p, 0); }}
+                  aria-label="Open gallery"
+                >
+                  View all →
+                </button>
+              </div>
+            )}
           </>
         ) : (
           <div className="gs-tile-tags">
@@ -151,6 +251,9 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
   const [resumeOpen, setResumeOpen] = React.useState(false);
   const [contactOpen, setContactOpen] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [lightbox, setLightbox] = React.useState(null);
+  const openGallery = (p, idx) => setLightbox({ project: p, idx });
+  const closeLightbox = () => setLightbox(null);
   const featured = window.PROJECTS.filter(p => p.featured);
   const all = window.PROJECTS;
   const resumeUrl = 'uploads/LatestResume.pdf';
@@ -240,7 +343,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
               </div>
               <div className="gs-tiles reveal d1">
                 {featured.map((p, i) => (
-                  <GSTile key={p.id} p={p} idx={i} expanded={openId===p.id} onClick={() => toggle(p.id)} flagStyle={flagStyle} />
+                  <GSTile key={p.id} p={p} idx={i} expanded={openId===p.id} onClick={() => toggle(p.id)} onGallery={openGallery} flagStyle={flagStyle} />
                 ))}
               </div>
             </section>
@@ -266,7 +369,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
             </div>
             <div className="gs-tiles reveal in d2">
               {all.map((p, i) => (
-                <GSTile key={p.id} p={p} idx={i} expanded={openId===p.id} onClick={() => toggle(p.id)} flagStyle={flagStyle} />
+                <GSTile key={p.id} p={p} idx={i} expanded={openId===p.id} onClick={() => toggle(p.id)} onGallery={openGallery} flagStyle={flagStyle} />
               ))}
             </div>
           </section>
@@ -370,6 +473,15 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
           </section>
         )}
       </div>
+
+      {lightbox && (
+        <GSLightbox
+          projectTitle={lightbox.project.title}
+          media={lightbox.project.media}
+          startIdx={lightbox.idx}
+          onClose={closeLightbox}
+        />
+      )}
 
       {contactOpen && <GSContactModal onClose={() => setContactOpen(false)} />}
 
