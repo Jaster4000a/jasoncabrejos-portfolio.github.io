@@ -6,10 +6,18 @@ const PROJECTS = [
     role: 'Robotic Embedded SW Engineer',
     year: '2023 — Present',
     tags: ['IoT', 'Jetson', 'Docker', 'Azure', 'GPS+RTK', 'ML Vision'],
-    blurb: 'Low-cost (<$10K/unit) edge tracking system. 92% accuracy at production scale, saving ~$5M/yr. Scaled across the country with Docker + Azure IoT Hub.',
+    blurb: [
+      '• Implemented a low-cost real-time inventory tracking system for under $10K per unit, merging IoT, Networking, Power over Ethernet (PoE), and edge computing using the Nvidia Jetson',
+      '• Achieved 92% accuracy at production scale by integrating GPS, RTK, and Machine Vision models — saving ~$5M per year',
+      '• Scaled to multiple hardware stacks nationwide using Docker and Azure IoT Hub to manage the fleet',
+    ].join('\n'),
     image: 'uploads/projects/inventoryTrackingSystem-BNSF/Thumbnail.jpg',
     featured: true,
     prize: null,
+    media: [
+      { type: 'image',   src: 'uploads/projects/inventoryTrackingSystem-BNSF/Thumbnail.jpg',          caption: 'Thumbnail' },
+      { type: 'image',   src: 'uploads/projects/inventoryTrackingSystem-BNSF/friendlyAlex.jpg',                   caption: 'Hey, that Alex guy seems pretty friendly' }
+    ],
   },
   {
     id: 'trackathon',
@@ -17,7 +25,11 @@ const PROJECTS = [
     role: 'Pitch + ML model',
     year: '2023',
     tags: ['ML', 'Big Data', 'Business Pitch'],
-    blurb: 'Pitched an ML model that predicts when track segments need inspection / repair to reduce service interruptions. Built the financial pitch + timeline.',
+    blurb: [
+      '• Pitched and conceptualized a Machine Learning Model that predicts track health based on existing track maintenance data.',
+      '• The goal being to preemptively identify when repairs or inspections are needed, reducing Infrastructure-Related Service Interruptions.',
+      '• Created the financial pitch and project timeline for the product to come to market'
+    ].join('\n'),
     image: 'uploads/projects/trackathon/Thumbnail.jpg',
     featured: false,
     prize: '1st Place',
@@ -28,10 +40,18 @@ const PROJECTS = [
     role: 'Team Lead (3)',
     year: '2022',
     tags: ['Pitch', 'Camera Vision', 'Auto Safety'],
-    blurb: 'Camera system that detects excessive backseat movement and alerts the driver — keeping eyes on the road. 1st of 24 selected teams.',
+    blurb: [
+      '• Selective application process, only 24 students were chosen to compete',
+      '• Lead a team of 3 to pitch an idea to improve infant/child safety for Nissan/Infiniti Vehicles',
+      '• Pitched a camera that would pick up excessive movement in the backseat and alert the driver to prevent them from constantly turning around to check on children, leading to safer driving and reduced distracted driving.'
+    ].join('\n'),
     image: 'uploads/projects/nissan/Thumbnail.jpg',
     featured: true,
     prize: '1st Place — Grand Prize',
+    media: [
+      { type: 'image', src: 'uploads/projects/nissan/Thumbnail.jpg', caption: 'Thumbnail' },
+      { type: 'slides', src: 'https://docs.google.com/presentation/d/e/2PACX-1vTB3f5C1cbuD6yLVTwDCYjg8nfEPVLCbCoywjmPs0tGdJ-FGnBvGJvQZLtupVMY6_q5ke5DP88Q0EZl/pubembed?start=false&loop=false&delayms=3000', caption: 'Eagle Eye Pitch Deck' },
+    ],
   },
   {
     id: 'rover-pres',

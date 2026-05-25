@@ -266,7 +266,7 @@
 .gs-tile-role { font-size: 0.82rem; color: var(--gs-mute); margin-bottom: 0.5rem; }
 .gs-tile-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; }
 .gs-chip { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; padding: 0.15rem 0.45rem; background: #f5f5f5; color: #333; letter-spacing: 0.04em; }
-.gs-tile-blurb { font-size: 0.92rem; line-height: 1.55; color: #333; margin: 0.6rem 0 0.8rem; }
+.gs-tile-blurb { font-size: 0.92rem; line-height: 1.55; color: #333; margin: 0.6rem 0 0.8rem; white-space: pre-line; }
 .gs-tile-foot { margin-top: auto; padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--gs-line); font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--gs-mute); text-transform: uppercase; }
 .gs-tile-foot-cta { color: var(--gs-fg); display: inline-flex; align-items: center; gap: 0.3rem; transition: gap 0.2s, color 0.2s; }
 .gs-tile:hover .gs-tile-foot-cta { gap: 0.55rem; color: var(--gs-accent); }

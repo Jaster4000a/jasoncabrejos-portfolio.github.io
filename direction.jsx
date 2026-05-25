@@ -133,9 +133,11 @@ function GSLightbox({ projectTitle, media, startIdx, onClose }) {
 
   const imgCount = media.filter(m => m.type === 'image').length;
   const vidCount = media.filter(m => m.type === 'video' || m.type === 'youtube').length;
+  const slidesCount = media.filter(m => m.type === 'slides').length;
   const summary = [
     imgCount ? `${imgCount} photo${imgCount > 1 ? 's' : ''}` : '',
     vidCount ? `${vidCount} video${vidCount > 1 ? 's' : ''}` : '',
+    slidesCount ? `${slidesCount} deck${slidesCount > 1 ? 's' : ''}` : '',
   ].filter(Boolean).join(' · ');
 
   return (
@@ -154,6 +156,8 @@ function GSLightbox({ projectTitle, media, startIdx, onClose }) {
         <div className="gs-lb-stage">
           {item.type === 'youtube' ? (
             <iframe key={idx} className="gs-lb-yt" src={`https://www.youtube.com/embed/${ytId(item.src)}?autoplay=1`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen frameBorder="0" title={item.caption || 'Video'} />
+          ) : item.type === 'slides' ? (
+            <iframe key={idx} className="gs-lb-yt" src={item.src} allowFullScreen frameBorder="0" title={item.caption || 'Slides'} />
           ) : item.type === 'video' ? (
             <video key={idx} className="gs-lb-media" controls autoPlay src={item.src} />
           ) : (
@@ -175,6 +179,8 @@ function GSLightbox({ projectTitle, media, startIdx, onClose }) {
                   ? <img src={`https://img.youtube.com/vi/${ytId(m.src)}/hqdefault.jpg`} alt={m.caption || ''} />
                   : m.type === 'video'
                   ? <div className="gs-lb-thumb-vid">▶</div>
+                  : m.type === 'slides'
+                  ? <div className="gs-lb-thumb-vid">⊞</div>
                   : <img src={m.src} alt={m.caption || ''} />}
               </button>
             ))}
@@ -218,6 +224,8 @@ function GSTile({ p, expanded, onClick, onGallery, flagStyle, idx }) {
                       ? <img src={`https://img.youtube.com/vi/${ytId(m.src)}/mqdefault.jpg`} alt={m.caption || ''} />
                       : m.type === 'video'
                       ? <div className="gs-tile-media-thumb-vid">▶</div>
+                      : m.type === 'slides'
+                      ? <div className="gs-tile-media-thumb-vid">⊞</div>
                       : <img src={m.src} alt={m.caption || ''} />}
                   </button>
                 ))}
