@@ -75,19 +75,37 @@ const PROJECTS = [
     role: 'President / Engineer',
     year: '2020 — 2021',
     tags: ['AutoLev', 'MATLAB', 'C#', 'Arduino'],
-    blurb: 'Generated equations of motion in AutoLev, simulated joint/task-space control in MATLAB, built a WinForms manual-control GUI.',
+    blurb: [
+            ' • Improved the robotic arm design to be easier to model dynamically', 
+            ' • Created a dynamic model with AutoLev and generated Equations of Motion for Joint Space and Operational Space Controllers (Sometimes called Task Space)',
+            ' • Simulated robotic arm using Matlab to ensure it moved as intended and used the torque-speed curve for motor selection',
+            ' • Created a Windows Forms program in Visual Studios to communicate with an Arduino and manually control the Arm by sending commands to the on-board Arduino'
+          ].join('\n'),
     featured: false,
+    image: 'uploads/projects/rover-sim/Thumbnail.png',
     prize: null,
+    media: [
+      { type: 'image',   src: 'uploads/projects/rover-sim/Thumbnail.png',          caption: 'Arm Design' },
+      { type: 'image', src: 'uploads/projects/rover-sim/Arm diagram1.PNG',        caption: 'Arm Diagram' },
+      { type: 'image',   src: 'uploads/projects/rover-sim/movement-sim-1.gif',                    caption: 'simulation of joint space movement following a path' }
+    ],
   },
   {
-    id: 'uta-ri',
+    id: 'utari',
     title: 'UTA Research Institute — Baxter',
     role: 'Researcher',
     year: '2022 — 2023',
     tags: ['ROS', 'OpenCV', 'Baxter', 'Rapid Prototyping'],
-    blurb: 'Trained Baxter to recognize + retrieve cans with ROS + OpenCV. Overhauled sensor stability on industrial platforms.',
+    blurb: ['• Worked on a various robotic systems such ReThink Robotics’ Baxter and a road scanning robot',
+            '• Trained Baxter to recognize and retrieve soda cans using its cameras, robotic limbs, Robotic Operating System (ROS), and OpenCV'
+          ].join('\n'),
+    image: 'uploads/projects/utari/Thumbnail.png',
     featured: false,
     prize: null,
+    media: [
+      { type: 'image',   src: 'uploads/projects/utari/Thumbnail.png',          caption: 'Baxter Robot' },
+      { type: 'youtube',   src: 'https://www.youtube.com/watch?v=rf07NCEZbcg',          caption: 'Baxter picking a can' },
+    ],
   },
   {
     id: 'crown-castle',
@@ -121,13 +139,31 @@ const PROJECTS = [
   },
   {
     id: 'nasa',
-    title: 'NASA L\u2019Space — Titan Submarine + ISS',
-    role: 'Project Manager',
+    title: 'NASA L\u2019Space — THANOS Submarine for Titan',
+    role: 'Deputy Project Manager',
     year: '2019',
-    tags: ['Mission Concept', 'Proposal Writing', 'PM'],
-    blurb: 'Two concepts: a Titan submarine and a Dextre / Canadarm tool-exchange improvement. Coordinated a national team of 6.',
+    tags: ['Mission Concept'],
+    blurb: [
+      '• Contributed as Deputy Project Manager and Science Team Member to the design and development of a Titan descent lander mission, featuring a submersible vehicle (THANOS) to explore and analyze the hydrocarbon sea Kraken Mare on Saturn\'s moon Titan.',
+      '• Led efforts in mechanical engineering design, utilizing skills in SolidWorks and MATLAB to support the integration of scientific instruments and ensure the submarine\'s structural integrity for cryogenic and high-pressure environments.',
+      '• Collaborated on mission planning, payload selection, and verification processes, helping to define and prioritize experiments such as liquid composition analysis, life detection, and lakebed mapping, while ensuring project milestones and risk management were met.'
+    ].join('\n'),
     featured: false,
     prize: null,
+  },
+  {
+  id: 'nasa',
+  title: 'NASA L\u2019Space — ISS Canadarm/Dextre Robotics Modification',
+  role: 'Project Manager',
+  year: '2019',
+  tags: ['Mission Concept'],
+  blurb: [
+    '• Contributed as Deputy Project Manager and Science Team Member to the design and development of a Titan descent lander mission, featuring a submersible vehicle (THANOS) to explore and analyze the hydrocarbon sea Kraken Mare on Saturn\'s moon Titan.',
+    '• Led efforts in mechanical engineering design, utilizing skills in SolidWorks and MATLAB to support the integration of scientific instruments and ensure the submarine\'s structural integrity for cryogenic and high-pressure environments.',
+    '• Collaborated on mission planning, payload selection, and verification processes, helping to define and prioritize experiments such as liquid composition analysis, life detection, and lakebed mapping, while ensuring project milestones and risk management were met.'
+  ].join('\n'),
+  featured: false,
+  prize: null,
   },
   {
     id: 'extreme',

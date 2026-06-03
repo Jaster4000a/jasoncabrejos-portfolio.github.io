@@ -285,7 +285,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
       </div>
 
       <nav className="gs-nav">
-        <div className="gs-brand">
+        <div className="gs-brand" onClick={() => { setPage('Home'); setOpenId(null); }} style={{cursor:'pointer'}}>
           <div className="gs-brand-mark">JC</div>
           <div>
             <div className="gs-brand-name">Jason Cabrejos</div>
