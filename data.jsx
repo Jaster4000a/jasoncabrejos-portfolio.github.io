@@ -298,6 +298,24 @@ const PROJECTS = [
       { type: 'image', src: 'uploads/projects/hack-llm/hackathonVenue.jpg', caption: 'Code-A-Thon' },
     ],
   },
+  {
+    id: 'shpe-dfw-pd-director',
+    title: 'SHPE DFW — Professional Development Director',
+    role: 'Executive Board Officer',
+    year: 'Jun 2026 — Present',
+    tags: ['Leadership', 'Program Management', 'Nonprofit', 'Stakeholder Engagement'],
+    blurb: [
+      '• Executive Board officer overseeing SHPE Dallas/Fort Worth\'s entire professional development pillar — strategy, budget, and delivery across three programs: PDS, TDS, and GLEDA.',
+      '• Run PDS (Professional Development Series), 9 soft-skills sessions per year (Sept–May), sourcing and coordinating corporate guest speakers on topics like financial planning, leadership, and workplace navigation.',
+      '• Launched TDS (Technical Development Series) for 2026-2027 — new certification-focused programming (PMP, PE, cloud, Six Sigma) — and lead a steering committee, including the GLEDA Program Manager, running the chapter\'s flagship mentor-mentee academy.'
+    ].join('\n'),
+    image: 'uploads/projects/shpe-dfw-pd-director/Thumbnail.png',
+    featured: true,
+    prize: null,
+    media: [
+      { type: 'image', src: 'uploads/projects/shpe-dfw-pd-director/Thumbnail.png', caption: 'SHPE Dallas/Fort Worth' },
+    ],
+  },
 ];
 
 const BACKGROUND = {
@@ -319,6 +337,7 @@ const BACKGROUND = {
 };
 
 const MEMBERSHIPS = [
+  { kind: 'Leadership',  name: 'SHPE DFW — Professional Development Director', date: 'Jun 2026 — Present', notes: 'Executive Board officer running PDS, TDS, and the GLEDA mentor-mentee program; manages steering committee and corporate speaker relationships.' },
   { kind: 'Leadership',  name: 'UTA Rover Team — President', date: '2020 — 2021', notes: 'Led 30 students to URC (15/88). Owned recruiting, budget, sponsor pitches, and arm-subsystem design.' },
   { kind: 'Leadership',  name: 'UTA Rover Team — Arm Captain', date: '2019 — 2020', notes: 'Captained the 5-DOF arm subsystem. Designed PID joint-space controller to ±0.4 in.' },
   { kind: 'Leadership',  name: 'SHPE Nissan Design Challenge — Team Lead', date: '2022', notes: 'Led 3-person team. 1st of 24 selected teams (Grand Prize).' },
