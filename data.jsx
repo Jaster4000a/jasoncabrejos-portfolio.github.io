@@ -353,7 +353,7 @@ const MEMBERSHIPS = [
 ];
 
 const HEADSHOTS = [
-  { id: 'hs1', caption: 'Headshot',         date: '2025' },
+  { id: 'hs1', caption: 'Headshot',         date: '2026' },
   { id: 'hs2', caption: 'BNSF Trackathon — 1st Place Team',          date: '2022' },
   { id: 'hs3', caption: 'URC field, UTA Rover Team',               date: '2021' },
   { id: 'hs4', caption: 'Nissan Design Challenge — Grand Prize',   date: '2022' },
