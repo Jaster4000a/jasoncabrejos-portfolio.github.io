@@ -18,13 +18,19 @@ const server = http.createServer((req, res) => {
   }
 
   // Construct full file path
-  const fullPath = path.join(__dirname, filePath);
+  let fullPath = path.join(__dirname, filePath);
 
   // Check if file exists and is within project directory
   if (!fullPath.startsWith(__dirname)) {
     res.writeHead(400, { 'Content-Type': 'text/plain' });
     res.end('Invalid request');
     return;
+  }
+
+  // Directory requests resolve to that directory's index.html (matches
+  // GitHub Pages' static-hosting behavior for e.g. /links/)
+  if (fs.existsSync(fullPath) && fs.statSync(fullPath).isDirectory()) {
+    fullPath = path.join(fullPath, 'index.html');
   }
 
   // Read and serve the file
