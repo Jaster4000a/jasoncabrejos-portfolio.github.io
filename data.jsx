@@ -333,6 +333,7 @@ const LABS = [
       '• n8n runs a real production workload — an email drip automation for SHPE DFW — not just a demo.',
       '• Own it the way a platform/SRE role would: DNS, TLS, container orchestration, backups, and hardware-level tuning (BIOS power settings, RAM, disk) with zero assigned deadline — it runs because I keep it running.'
     ].join('\n'),
+    image: 'uploads/projects/sapa-homelab/Thumbnail.jpg',
     featured: true,
     prize: null,
   },
@@ -346,6 +347,7 @@ const LABS = [
       '• Built an automated paper-trading bot running unattended on a daily systemd timer, live on Sapa since September 2026.',
       '• It broke silently for 3 days on a Docker/snap filesystem-path bug — found it, root-caused it, and shipped the fix myself, the same way I’d own an incident in production.'
     ].join('\n'),
+    image: 'uploads/projects/paper-trader/Thumbnail.jpg',
     featured: true,
     prize: null,
   },
@@ -359,6 +361,7 @@ const LABS = [
       '• Designed and shipped a phone push-to-talk interface that talks directly to Claude — planned and built across 9 phases end to end, from audio capture to response playback.',
       '• My most direct, hands-on LLM-integration project — not a tagged skill, an actual shipped app.'
     ].join('\n'),
+    image: 'uploads/projects/claude-voice-assistant/Thumbnail.jpg',
     featured: true,
     prize: null,
   },
@@ -369,9 +372,10 @@ const LABS = [
     year: '2026',
     tags: ['LLM', 'Agents', 'Python'],
     blurb: [
-      '• Built a harness that pits LLM agents against each other at chess — game loop, move validation, and result tracking all working end to end against mock agents.',
-      '• In progress: wiring in real LLM API keys next to see how actual models play each other.'
+      '• Built a match harness (python-chess rules authority, move-retry/forfeit handling, full JSON/PGN logging) that runs real matches between Claude and a classical chess engine — no mocked moves.',
+      '• Renders a full match video plus a per-move reasoning log for each game; already has complete, clean end-to-end runs against the classical engine in the can.'
     ].join('\n'),
+    image: 'uploads/projects/chess-agent-arena/Thumbnail.jpg',
     featured: false,
     prize: null,
   },
