@@ -340,10 +340,10 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
                 </h1>
                 <p className="gs-lead reveal in d2">
                   Currently at BNSF Railway, where my edge-computing inventory tracking system
-                  fuses GPS, RTK, and machine-vision models for 92% accuracy and an estimated
-                  $5M in annual savings — scaled nationwide through Docker and Azure IoT Hub.
-                  Off the clock, I build and run my own AI-agent and automation projects end to end
-                  — see <button className="gs-inline-link" onClick={() => setPage('Labs')}>Labs</button>.
+                  combines GPS, RTK, and machine-vision models for 92% accuracy and an estimated
+                  $5M in annual savings, scaled nationwide through Docker and Azure IoT Hub.
+                  Off the clock, I build and run my own AI-agent and automation projects.
+                  See <button className="gs-inline-link" onClick={() => setPage('Labs')}>Labs</button>.
                 </p>
                 <div className="gs-cta-row reveal in d3">
                   <button className="gs-btn solid" onClick={() => setPage('Projects')}>View featured work →</button>

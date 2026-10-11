@@ -8,7 +8,7 @@ const PROJECTS = [
     tags: ['IoT', 'Jetson', 'Docker', 'Azure', 'GPS+RTK', 'ML Vision'],
     blurb: [
       '• Implemented a low-cost real-time inventory tracking system for under $10K per unit, merging IoT, Networking, Power over Ethernet (PoE), and edge computing using the Nvidia Jetson',
-      '• Achieved 92% accuracy at production scale by integrating GPS, RTK, and Machine Vision models — saving ~$5M per year',
+      '• Achieved 92% accuracy at production scale by integrating GPS, RTK, and Machine Vision models, saving ~$5M per year',
       '• Scaled to multiple hardware stacks nationwide using Docker and Azure IoT Hub to manage the fleet',
     ].join('\n'),
     image: 'uploads/projects/inventoryTrackingSystem-BNSF/Thumbnail.jpg',
@@ -305,10 +305,10 @@ const PROJECTS = [
     year: 'Jun 2026 — Present',
     tags: ['Leadership', 'Program Management', 'Nonprofit', 'Stakeholder Engagement'],
     blurb: [
-      '• Executive Board officer overseeing SHPE Dallas/Fort Worth\'s entire professional development pillar — strategy, budget, and delivery across three programs: PDS, TDS, and GLEDA.',
+      '• Executive Board officer running SHPE Dallas/Fort Worth\'s professional development pillar: strategy, budget, and delivery across three programs (PDS, TDS, GLEDA).',
       '• Run PDS (Professional Development Series), 9 soft-skills sessions per year (Sept–May), sourcing and coordinating corporate guest speakers on topics like financial planning, leadership, and workplace navigation.',
-      '• Launched TDS (Technical Development Series) for 2026-2027 — new certification-focused programming (PMP, PE, cloud, Six Sigma) — and lead a steering committee, including the GLEDA Program Manager, running the chapter\'s flagship mentor-mentee academy.',
-      '• Co-founded and piloting a STEM-kit venture alongside SHPE DFW — turning chapter programming into a hands-on product kids and students can take home.'
+      '• Launched TDS (Technical Development Series) for 2026-2027, new certification-focused programming (PMP, PE, cloud, Six Sigma), and lead a steering committee, including the GLEDA Program Manager, running the chapter\'s mentor-mentee academy.',
+      '• Co-founded and piloting a STEM-kit venture alongside SHPE DFW: a hands-on kit kids and students take home.'
     ].join('\n'),
     image: 'uploads/projects/shpe-dfw-pd-director/Thumbnail.png',
     imageFit: 'contain',
@@ -329,9 +329,9 @@ const LABS = [
     year: '2026 — Present',
     tags: ['Docker', 'nginx', 'Linux', 'Networking', 'Self-hosted'],
     blurb: [
-      '• Administer a home server running 6+ Dockerized services end to end: reverse proxy (nginx, wildcard LAN domain), Uptime Kuma monitoring, a Homepage service launcher, and n8n workflow automation.',
-      '• n8n runs a real production workload — an email drip automation for SHPE DFW — not just a demo.',
-      '• Own it the way a platform/SRE role would: DNS, TLS, container orchestration, backups, and hardware-level tuning (BIOS power settings, RAM, disk) with zero assigned deadline — it runs because I keep it running.'
+      '• Administer a home server running 6+ Dockerized services: reverse proxy (nginx, wildcard LAN domain), Uptime Kuma monitoring, a Homepage service launcher, and n8n workflow automation.',
+      '• n8n runs a real production workload: an email drip automation for SHPE DFW, not a demo.',
+      '• Own it the way a platform/SRE role would: DNS, TLS, container orchestration, backups, and hardware-level tuning (BIOS power settings, RAM, disk), with no assigned deadline. It runs because I keep it running.'
     ].join('\n'),
     image: 'uploads/projects/sapa-homelab/Thumbnail.jpg',
     featured: true,
@@ -345,7 +345,7 @@ const LABS = [
     tags: ['Python', 'Docker', 'systemd', 'Automation'],
     blurb: [
       '• Built an automated paper-trading bot running unattended on a daily systemd timer, live on Sapa since September 2026.',
-      '• It broke silently for 3 days on a Docker/snap filesystem-path bug — found it, root-caused it, and shipped the fix myself, the same way I’d own an incident in production.'
+      '• It broke silently for 3 days on a Docker/snap filesystem-path bug. I found it, root-caused it, and shipped the fix myself, the same way I’d own an incident in production.'
     ].join('\n'),
     image: 'uploads/projects/paper-trader/Thumbnail.jpg',
     featured: true,
@@ -358,8 +358,8 @@ const LABS = [
     year: '2026',
     tags: ['LLM', 'Mobile', 'Voice', 'API integration'],
     blurb: [
-      '• Designed and shipped a phone push-to-talk interface that talks directly to Claude — planned and built across 9 phases end to end, from audio capture to response playback.',
-      '• My most direct, hands-on LLM-integration project — not a tagged skill, an actual shipped app.'
+      '• Designed and shipped a phone push-to-talk interface that talks directly to Claude, planned and built across 9 phases, from audio capture to response playback.',
+      '• My most direct, hands-on LLM-integration project: an app I actually shipped, not a line in a tags list.'
     ].join('\n'),
     image: 'uploads/projects/claude-voice-assistant/Thumbnail.jpg',
     featured: true,
@@ -372,8 +372,8 @@ const LABS = [
     year: '2026',
     tags: ['LLM', 'Agents', 'Python'],
     blurb: [
-      '• Built a match harness (python-chess rules authority, move-retry/forfeit handling, full JSON/PGN logging) that runs real matches between Claude and a classical chess engine — no mocked moves.',
-      '• Renders a full match video plus a per-move reasoning log for each game; already has complete, clean end-to-end runs against the classical engine in the can.'
+      '• Built a match harness (python-chess rules authority, move-retry/forfeit handling, full JSON/PGN logging) that runs real matches between Claude and a classical chess engine. No mocked moves.',
+      '• Renders a full match video plus a per-move reasoning log for each game. Already has clean, complete runs against the classical engine in the can.'
     ].join('\n'),
     image: 'uploads/projects/chess-agent-arena/Thumbnail.jpg',
     featured: false,
