@@ -310,7 +310,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
           ))}
         </div>
         <div className="gs-nav-right">
-          <span className="gs-nav-status">Available · 2026</span>
+          <span className="gs-nav-status">Open to full-time roles · 2026</span>
           <button className="gs-nav-cta" onClick={() => setContactOpen(true)}>Contact</button>
         </div>
         <button className="gs-nav-hamburger" onClick={() => setMenuOpen(m => !m)} aria-label="Toggle menu">
