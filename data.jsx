@@ -198,11 +198,11 @@ const PROJECTS = [
     '• Designed a standardized, diverse toolkit and specialized end effector so Dextre can perform more maintenance and repair tasks, cutting part count and cost against the current $200M, 15-DOF, 1,710 kg system.',
     '• Coordinated with co-PI Amer Khalaf and a cross-disciplinary team on requirements and feasibility, targeting reduced astronaut EVA time and more onboard science time as the key mission payoff.'
   ].join('\n'),
-  image: 'uploads/projects/nasa-texas/Thumbnail.png',
+  image: 'uploads/projects/nasa-texas/toolArrayRender1.png',
   media: [
-    { type: 'image',  src: 'uploads/projects/nasa-texas/Thumbnail.png',        caption: 'TEXAS \u2014 Tool Effector eXchange Array System' },
     { type: 'image',  src: 'uploads/projects/nasa-texas/toolArrayRender1.png', caption: 'Tool array concept' },
     { type: 'image',  src: 'uploads/projects/nasa-texas/toolArrayRender2.png', caption: 'Tool array concept' },
+    { type: 'image',  src: 'uploads/projects/nasa-texas/Thumbnail.png',        caption: 'TEXAS \u2014 Tool Effector eXchange Array System' },
     { type: 'slides', src: 'uploads/projects/nasa-texas/proposalDeck.pdf',     caption: 'Program Proposal + NTR' },
   ],
   featured: false,
@@ -250,11 +250,11 @@ const PROJECTS = [
     year: 'Hackathon',
     tags: ['TensorFlow', 'CV', 'Robotics'],
     blurb: 'Trained a TensorFlow CV model + robot to recognize and sort waste.',
-    image: 'uploads/projects/hack-waste/Thumbnail.png',
+    image: 'uploads/projects/hack-waste/Thumbnail.jpg',
     featured: false,
     prize: '3rd Place',
     media: [
-      { type: 'image', src: 'uploads/projects/hack-waste/Thumbnail.png',     caption: 'Sussy Bot — HackUTA 2022, 3rd Place' },
+      { type: 'image', src: 'uploads/projects/hack-waste/Thumbnail.jpg',     caption: 'Sussy Bot — HackUTA 2022, 3rd Place' },
       { type: 'image', src: 'uploads/projects/hack-waste/robotHardware.jpg', caption: 'Sussy Bot hardware' },
     ],
   },
@@ -287,15 +287,15 @@ const PROJECTS = [
     year: 'Hackathon',
     tags: ['Copilot Studio', 'Power Automate', 'LLM'],
     blurb: 'Trained a mock-interviewer LLM with Microsoft Copilot Studio + Power Automate for practice + feedback.',
-    image: 'uploads/projects/hack-llm/Thumbnail.png',
+    image: 'uploads/projects/hack-llm/teamPhoto1.jpg',
     featured: false,
     prize: '2nd Place',
     media: [
-      { type: 'image', src: 'uploads/projects/hack-llm/Thumbnail.png',      caption: 'JobTalk — live in Copilot Studio' },
       { type: 'image', src: 'uploads/projects/hack-llm/teamPhoto1.jpg',     caption: 'Team JobTalk' },
       { type: 'image', src: 'uploads/projects/hack-llm/teamPhoto2.jpg',     caption: 'Team JobTalk' },
       { type: 'image', src: 'uploads/projects/hack-llm/bankOfAmerica.jpg',  caption: 'At Bank of America HQ' },
       { type: 'image', src: 'uploads/projects/hack-llm/hackathonVenue.jpg', caption: 'Code-A-Thon' },
+      { type: 'image', src: 'uploads/projects/hack-llm/Thumbnail.png',      caption: 'JobTalk — live in Copilot Studio' },
     ],
   },
   {
@@ -307,9 +307,11 @@ const PROJECTS = [
     blurb: [
       '• Executive Board officer overseeing SHPE Dallas/Fort Worth\'s entire professional development pillar — strategy, budget, and delivery across three programs: PDS, TDS, and GLEDA.',
       '• Run PDS (Professional Development Series), 9 soft-skills sessions per year (Sept–May), sourcing and coordinating corporate guest speakers on topics like financial planning, leadership, and workplace navigation.',
-      '• Launched TDS (Technical Development Series) for 2026-2027 — new certification-focused programming (PMP, PE, cloud, Six Sigma) — and lead a steering committee, including the GLEDA Program Manager, running the chapter\'s flagship mentor-mentee academy.'
+      '• Launched TDS (Technical Development Series) for 2026-2027 — new certification-focused programming (PMP, PE, cloud, Six Sigma) — and lead a steering committee, including the GLEDA Program Manager, running the chapter\'s flagship mentor-mentee academy.',
+      '• Co-founded and piloting a STEM-kit venture alongside SHPE DFW — turning chapter programming into a hands-on product kids and students can take home.'
     ].join('\n'),
     image: 'uploads/projects/shpe-dfw-pd-director/Thumbnail.png',
+    imageFit: 'contain',
     featured: true,
     prize: null,
     media: [
@@ -317,6 +319,64 @@ const PROJECTS = [
     ],
   },
 ];
+
+// Self-directed builds — not assigned by work/school, maintained on my own time.
+const LABS = [
+  {
+    id: 'sapa-homelab',
+    title: 'Sapa — Self-Hosted Home Lab',
+    role: 'Sole admin',
+    year: '2026 — Present',
+    tags: ['Docker', 'nginx', 'Linux', 'Networking', 'Self-hosted'],
+    blurb: [
+      '• Administer a home server running 6+ Dockerized services end to end: reverse proxy (nginx, wildcard LAN domain), Uptime Kuma monitoring, a Homepage service launcher, and n8n workflow automation.',
+      '• n8n runs a real production workload — an email drip automation for SHPE DFW — not just a demo.',
+      '• Own it the way a platform/SRE role would: DNS, TLS, container orchestration, backups, and hardware-level tuning (BIOS power settings, RAM, disk) with zero assigned deadline — it runs because I keep it running.'
+    ].join('\n'),
+    featured: true,
+    prize: null,
+  },
+  {
+    id: 'paper-trader',
+    title: 'Paper-Trader — Automated Trading Bot',
+    role: 'Sole builder',
+    year: 'Sept 2026 — Present',
+    tags: ['Python', 'Docker', 'systemd', 'Automation'],
+    blurb: [
+      '• Built an automated paper-trading bot running unattended on a daily systemd timer, live on Sapa since September 2026.',
+      '• It broke silently for 3 days on a Docker/snap filesystem-path bug — found it, root-caused it, and shipped the fix myself, the same way I’d own an incident in production.'
+    ].join('\n'),
+    featured: true,
+    prize: null,
+  },
+  {
+    id: 'claude-voice-assistant',
+    title: 'Claude Voice Assistant',
+    role: 'Sole builder',
+    year: '2026',
+    tags: ['LLM', 'Mobile', 'Voice', 'API integration'],
+    blurb: [
+      '• Designed and shipped a phone push-to-talk interface that talks directly to Claude — planned and built across 9 phases end to end, from audio capture to response playback.',
+      '• My most direct, hands-on LLM-integration project — not a tagged skill, an actual shipped app.'
+    ].join('\n'),
+    featured: true,
+    prize: null,
+  },
+  {
+    id: 'chess-agent-arena',
+    title: 'Chess Agent Arena',
+    role: 'Sole builder',
+    year: '2026',
+    tags: ['LLM', 'Agents', 'Python'],
+    blurb: [
+      '• Built a harness that pits LLM agents against each other at chess — game loop, move validation, and result tracking all working end to end against mock agents.',
+      '• In progress: wiring in real LLM API keys next to see how actual models play each other.'
+    ].join('\n'),
+    featured: false,
+    prize: null,
+  },
+];
+window.LABS = LABS;
 
 const BACKGROUND = {
   education: [

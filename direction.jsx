@@ -1,4 +1,4 @@
-const GS_PAGES = ['Home', 'Projects', 'Background', 'Leadership & Memberships', 'Awards'];
+const GS_PAGES = ['Home', 'Projects', 'Labs', 'Background', 'Leadership & Memberships', 'Awards'];
 
 function GSContactIcon({ id }) {
   if (id === 'email') return (
@@ -198,7 +198,17 @@ function GSTile({ p, expanded, onClick, onGallery, flagStyle, idx }) {
       <div className="gs-tile-num">PRJ-{num}</div>
       <GSFlag prize={p.prize} style={flagStyle} />
       <div className="gs-tile-img">
-        {p.image && <img src={p.image} alt={p.title} style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} />}
+        {p.image && (
+          <img
+            src={p.image}
+            alt={p.title}
+            style={{
+              width: '100%', height: '100%', display: 'block',
+              objectFit: p.imageFit || 'cover',
+              ...(p.imageFit === 'contain' ? { padding: '2rem', boxSizing: 'border-box' } : {}),
+            }}
+          />
+        )}
       </div>
       <div className="gs-tile-body">
         <div className="gs-tile-year">{p.year}</div>
@@ -264,6 +274,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
   const closeLightbox = () => setLightbox(null);
   const featured = window.PROJECTS.filter(p => p.featured);
   const all = window.PROJECTS;
+  const labs = window.LABS || [];
   const resumeUrl = 'uploads/LatestResume.pdf';
   const toggle = (id) => setOpenId(prev => prev === id ? null : id);
   const openResume = () => setResumeOpen(true);
@@ -322,14 +333,16 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
             <section className="gs-hero">
               <div className="gs-hero-num reveal in">01</div>
               <div className="gs-hero-text">
-                <div className="gs-eyebrow reveal in"><span className="gs-dash draw-line" /> Robotic Embedded Engineer</div>
+                <div className="gs-eyebrow reveal in"><span className="gs-dash draw-line" /> Robotic Embedded Engineer · AI-Forward</div>
                 <h1 className="gs-h1 reveal in d1">
                   I design and ship<br/>industrial robotics<br/>that <span className="acc">survive production.</span>
                 </h1>
                 <p className="gs-lead reveal in d2">
                   Currently at BNSF Railway, where my edge-computing inventory tracking system
-                  operates at 92% accuracy and an estimated $5M in annual savings — scaled
-                  nationwide through Docker and Azure IoT Hub.
+                  fuses GPS, RTK, and machine-vision models for 92% accuracy and an estimated
+                  $5M in annual savings — scaled nationwide through Docker and Azure IoT Hub.
+                  Off the clock, I build and run my own AI-agent and automation projects end to end
+                  — see <button className="gs-inline-link" onClick={() => setPage('Labs')}>Labs</button>.
                 </p>
                 <div className="gs-cta-row reveal in d3">
                   <button className="gs-btn solid" onClick={() => setPage('Projects')}>View featured work →</button>
@@ -378,6 +391,27 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
             </div>
             <div className="gs-tiles reveal in d2">
               {all.map((p, i) => (
+                <GSTile key={p.id} p={p} idx={i} expanded={openId===p.id} onClick={() => toggle(p.id)} onGallery={openGallery} flagStyle={flagStyle} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {page === 'Labs' && (
+          <section className="gs-section" style={{paddingTop:'4rem'}}>
+            <div className="gs-section-head reveal in">
+              <div className="gs-section-num">∞</div>
+              <h2 className="gs-h2">Labs</h2>
+              <div className="gs-section-right">
+                <span className="gs-section-link">{labs.length} builds</span>
+              </div>
+            </div>
+            <p className="gs-lead reveal in d1" style={{marginTop:'-1.5rem', marginBottom:'2.5rem', maxWidth:'70ch'}}>
+              Nobody assigned these. Self-hosted infrastructure, a trading bot, and LLM-integration
+              projects I build and keep running on my own time.
+            </p>
+            <div className="gs-tiles reveal in d2">
+              {labs.map((p, i) => (
                 <GSTile key={p.id} p={p} idx={i} expanded={openId===p.id} onClick={() => toggle(p.id)} onGallery={openGallery} flagStyle={flagStyle} />
               ))}
             </div>
@@ -497,6 +531,9 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
       {resumeOpen && (
         <div className="gs-resume-modal" onClick={closeResume}>
           <div className="gs-resume-dialog" onClick={(e) => e.stopPropagation()}>
+            <a className="gs-resume-newtab" href={resumeUrl} target="_blank" rel="noopener noreferrer">
+              Open in new tab ↗
+            </a>
             <button className="gs-resume-close" onClick={closeResume} aria-label="Close résumé">×</button>
             <div className="gs-resume-frame">
               <iframe src={resumeUrl} title="Résumé PDF" frameBorder="0" />
