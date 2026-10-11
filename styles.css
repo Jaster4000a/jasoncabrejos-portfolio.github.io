@@ -571,6 +571,7 @@
 }
 .gs-mobile-btn:hover { color: var(--gs-fg); background: #f9f9f9; }
 .gs-mobile-btn.active { color: var(--gs-fg); font-weight: 600; }
+a.gs-mobile-btn { display: block; text-decoration: none; box-sizing: border-box; }
 .gs-mobile-contact {
   background: var(--gs-fg); color: var(--gs-bg); border: none;
   padding: 1rem 1.5rem;

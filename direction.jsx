@@ -323,6 +323,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
           {GS_PAGES.map(pg => (
             <button key={pg} className={`gs-mobile-btn ${page===pg?'active':''}`} onClick={() => { setPage(pg); setOpenId(null); setMenuOpen(false); }}>{pg}</button>
           ))}
+          <a className="gs-mobile-btn" href="/links/">Links</a>
           <button className="gs-mobile-contact" onClick={() => { setContactOpen(true); setMenuOpen(false); }}>Contact</button>
         </div>
       )}
