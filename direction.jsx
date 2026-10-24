@@ -301,7 +301,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
           <div className="gs-brand-mark">JC</div>
           <div>
             <div className="gs-brand-name">Jason Cabrejos</div>
-            <div className="gs-brand-sub">Robotics · Embedded · ML</div>
+            <div className="gs-brand-sub">Robotics · Embedded · Machine vision</div>
           </div>
         </div>
         <div className="gs-nav-links">
@@ -334,16 +334,16 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
             <section className="gs-hero">
               <div className="gs-hero-num reveal in">01</div>
               <div className="gs-hero-text">
-                <div className="gs-eyebrow reveal in"><span className="gs-dash draw-line" /> Robotic Embedded Engineer · AI-Forward</div>
+                <div className="gs-eyebrow reveal in"><span className="gs-dash draw-line" /> Robotics and embedded engineer · MS CS, BS ME</div>
                 <h1 className="gs-h1 reveal in d1">
                   I design and ship<br/>industrial robotics<br/>that <span className="acc">survive production.</span>
                 </h1>
                 <p className="gs-lead reveal in d2">
-                  Currently at BNSF Railway, where my edge-computing inventory tracking system
-                  combines GPS, RTK, and machine-vision models for 92% accuracy and an estimated
-                  $5M in annual savings, scaled nationwide through Docker and Azure IoT Hub.
-                  Off the clock, I build and run my own AI-agent and automation projects.
-                  See <button className="gs-inline-link" onClick={() => setPage('Labs')}>Labs</button>.
+                  At BNSF Railway I took a real-time inventory tracking system from prototype
+                  to production on Nvidia Jetson. It combines GPS, RTK and machine vision for 92%
+                  container detection accuracy at production scale, saves $5M a year, and runs on
+                  a fleet of 50 Jetson units nationwide. I also built the Gazebo/Nav2 yard simulator
+                  and benchmarking harness that measures detection accuracy offline.
                 </p>
                 <div className="gs-cta-row reveal in d3">
                   <button className="gs-btn solid" onClick={() => setPage('Projects')}>View featured work →</button>
@@ -424,7 +424,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
             <div className="gs-section-head reveal in">
               <div className="gs-section-num">03</div>
               <h2 className="gs-h2">Background</h2>
-              <div className="gs-section-right"><span className="gs-section-link">UTA · 2017—2025</span></div>
+              <div className="gs-section-right"><span className="gs-section-link">UTA · 2017 - 2025</span></div>
             </div>
             <div className="gs-bg-grid">
               <div className="gs-bg-col-1 reveal in d1">
@@ -434,7 +434,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
                     <div className="gs-line-date">{e.date}</div>
                     <div>
                       <div className="gs-line-title">{e.school}</div>
-                      {e.items.map(i => <div key={i} className="gs-line-sub">— {i}</div>)}
+                      {e.items.map(i => <div key={i} className="gs-line-sub">{i}</div>)}
                     </div>
                   </div>
                 ))}
