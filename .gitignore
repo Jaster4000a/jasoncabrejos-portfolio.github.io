@@ -1,3 +1,4 @@
 node_modules/
 test-results/
-CLAUDE.md.taste-skill/
+CLAUDE.md
+.taste-skill/
