@@ -5,19 +5,19 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; background: #eeecea; }
+html { scroll-behavior: smooth; background: #fffdf9; }
 body {
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background: #eeecea;
-  color: #333231;
+  background: #fffdf9;
+  color: #111111;
 }
 button { font-family: inherit; cursor: pointer; }
 a { color: inherit; }
 
 /* ===== App shell ===== */
-.v2-shell { min-height: 100dvh; background: #eeecea; }
+.v2-shell { min-height: 100dvh; background: #fffdf9; }
 
 /* ===== Reveal-on-scroll: parts of a section rise in, staggered ===== */
 .reveal {

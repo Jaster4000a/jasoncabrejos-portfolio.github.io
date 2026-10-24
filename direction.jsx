@@ -366,6 +366,7 @@ function DirectionGridSystem({ flagStyle, showGrid }) {
 
   return (
     <div className="gs-wrap">
+      <div className="gs-aura" aria-hidden="true" />
       <div className={`gs-grid-underlay ${showGrid ? 'show' : ''}`}>
         {Array.from({length: 12}, (_, i) => <span key={i} />)}
       </div>
