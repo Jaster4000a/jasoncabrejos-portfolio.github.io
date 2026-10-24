@@ -2,6 +2,14 @@
 const PROJECTS = [
   {
     id: 'bnsf',
+    results: [
+      { value: 'Under $10K', label: 'per unit' },
+      { value: '92%', label: 'container detection accuracy' },
+      { value: '$5M', label: 'saved per year' },
+      { value: '50', label: 'Jetson units deployed' },
+    ],
+    summary: "Jetson edge units that track rail-yard inventory with GPS, RTK and machine vision, deployed on 50 units nationwide.",
+    category: 'industry',
     title: 'BNSF Railway: Real-Time Inventory Tracking',
     role: 'Robotic Embedded SW Engineer',
     year: '2023 - Present',
@@ -22,6 +30,8 @@ const PROJECTS = [
   },
   {
     id: 'crown-castle',
+    summary: "Automated a fiber-trenching machine to follow the curb on its own, cutting the crew by 30%.",
+    category: 'industry',
     title: 'Crown Castle: Fiber Trenching Automation',
     role: 'Robotic Development Intern',
     year: '2022',
@@ -47,6 +57,8 @@ const PROJECTS = [
   },
   {
     id: 'afp',
+    summary: "Built a fiber-placement tool and the slicer software that drives it on a KUKA arm.",
+    category: 'research',
     title: 'Automated Fiber Placement: KUKA',
     role: 'Researcher',
     year: '2021 - 2022',
@@ -67,6 +79,8 @@ const PROJECTS = [
   },
   {
     id: 'utari',
+    summary: "Trained a Baxter robot to find and pick up soda cans with ROS and OpenCV.",
+    category: 'research',
     title: 'UTA Research Institute: Baxter',
     role: 'Researcher',
     year: '2022 - 2023',
@@ -84,6 +98,8 @@ const PROJECTS = [
   },
   {
     id: 'rover-sim',
+    summary: "Modeled, simulated and built manual controls for the rover's robotic arm.",
+    category: 'orgs',
     title: 'Rover Arm: Dynamic Simulation & Controls',
     role: 'President / Engineer',
     year: '2020 - 2021',
@@ -105,6 +121,8 @@ const PROJECTS = [
   },
   {
     id: 'rover-pres',
+    summary: "Led 30 students to the University Rover Challenge, 15th of 88 teams.",
+    category: 'orgs',
     title: 'UTA Rover Team: President',
     role: 'President / Arm Captain / Member',
     year: '2017 - 2021',
@@ -121,6 +139,8 @@ const PROJECTS = [
   },
   {
     id: 'nissan',
+    summary: "Grand-prize pitch: a back-seat camera that alerts the driver to a child's movement.",
+    category: 'competitions',
     title: 'SHPE Nissan Design Challenge: Eagle Eye',
     role: 'Team Lead (3)',
     year: '2022',
@@ -140,6 +160,8 @@ const PROJECTS = [
   },
   {
     id: 'trackathon',
+    summary: "First-place pitch: an ML model that predicts track health from maintenance data.",
+    category: 'competitions',
     title: 'BNSF Trackathon: Predictive Track Health',
     role: 'Pitch + ML model',
     year: '2023',
@@ -155,6 +177,8 @@ const PROJECTS = [
   },
   {
     id: 'extreme',
+    summary: "Led 11 students pitching a rentable ISS robot, tied 1st in the semi-finals.",
+    category: 'competitions',
     title: 'SHPE Extreme Engineering: LEO Robot',
     role: 'Team Lead (11)',
     year: '2022',
@@ -173,6 +197,8 @@ const PROJECTS = [
   },
   {
     id: 'hack-waste',
+    summary: "Trained a TensorFlow vision model and a robot to sort waste. 3rd place.",
+    category: 'competitions',
     title: 'Hackathon: Robotic Waste Sorter',
     role: 'Team Member',
     year: 'Hackathon',
@@ -188,6 +214,8 @@ const PROJECTS = [
   },
   {
     id: 'hack-ag',
+    summary: "Sensor network that counts fruit and schedules irrigation. 3rd place.",
+    category: 'competitions',
     title: 'Hackathon: Agricultural IoT',
     role: 'Team Member',
     year: 'Hackathon',
@@ -210,6 +238,8 @@ const PROJECTS = [
   },
   {
     id: 'hack-llm',
+    summary: "Mock-interviewer chatbot built in Copilot Studio. 2nd place.",
+    category: 'competitions',
     title: 'Hackathon: Mock Interviewer LLM',
     role: 'Team Member',
     year: 'Hackathon',
@@ -227,7 +257,9 @@ const PROJECTS = [
     ],
   },
   {
-    id: 'nasa',
+    id: 'nasa-thanos',
+    summary: "Deputy PM on a mission concept for a submarine exploring Titan's seas.",
+    category: 'orgs',
     title: 'NASA L\'Space: THANOS Submarine for Titan',
     role: 'Deputy Project Manager',
     year: '2019',
@@ -248,7 +280,9 @@ const PROJECTS = [
     prize: null,
   },
   {
-  id: 'nasa',
+  id: 'nasa-texas',
+  summary: "PM on a concept to give the ISS robot Dextre a swappable tool kit.",
+  category: 'orgs',
   title: 'NASA L\'Space: ISS Canadarm/Dextre Robotics Modification',
   role: 'Project Manager',
   year: '2019',
@@ -270,6 +304,8 @@ const PROJECTS = [
   },
   {
     id: 'aeromavs',
+    summary: "Designed the composite body and fins for a competition rocket, earned L1 certification.",
+    category: 'orgs',
     title: 'AeroMavs: Structural Rocketry',
     role: 'Structural Division Member',
     year: '2017 - 2018',
@@ -287,6 +323,8 @@ const PROJECTS = [
   },
   {
     id: 'beumer',
+    summary: "C# macros that automated CAD drafting and PLM data entry.",
+    category: 'industry',
     title: 'Beumer Group: CAD/PLM Macros',
     role: 'CAD/PLM Intern',
     year: '2019 - 2021',
@@ -301,6 +339,8 @@ const PROJECTS = [
   },
   {
     id: 'shpe-dfw-pd-director',
+    summary: "Run the chapter's professional development programs: PDS, TDS and GLEDA.",
+    category: 'orgs',
     title: 'SHPE DFW: Professional Development Director',
     role: 'Executive Board Officer',
     year: 'Jun 2026 - Present',
@@ -325,6 +365,7 @@ const PROJECTS = [
 const LABS = [
   {
     id: 'sapa-homelab',
+    summary: "Home server running 6+ Docker services, including a live SHPE DFW email automation.",
     title: 'Sapa: Self-Hosted Home Lab',
     role: 'Sole admin',
     year: '2026 - Present',
@@ -340,6 +381,7 @@ const LABS = [
   },
   {
     id: 'paper-trader',
+    summary: "Unattended trading bot on a daily timer. I found and fixed a silent 3-day outage.",
     title: 'Paper-Trader: Automated Trading Bot',
     role: 'Sole builder',
     year: 'Sept 2026 - Present',
@@ -354,6 +396,7 @@ const LABS = [
   },
   {
     id: 'claude-voice-assistant',
+    summary: "Push-to-talk phone app that talks to Claude, built in 9 phases.",
     title: 'Claude Voice Assistant',
     role: 'Sole builder',
     year: '2026',
@@ -368,6 +411,7 @@ const LABS = [
   },
   {
     id: 'chess-agent-arena',
+    summary: "Match harness that pits Claude against a chess engine and logs every move.",
     title: 'Chess Agent Arena',
     role: 'Sole builder',
     year: '2026',
